@@ -18,9 +18,6 @@ public class ForLoopNode extends Node {
     @Override
     public
     String render(Map<String, Object> context) {
-        System.out.println("aaaa");
-        System.out.println(variable);
-        System.out.println(collection);
         Object collectionObject = context.get(collection);
         if (collectionObject instanceof Iterable) {
             StringBuilder sb = new StringBuilder();

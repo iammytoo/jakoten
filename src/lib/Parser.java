@@ -64,7 +64,6 @@ public class Parser {
         if (lastEnd < template.length()) {
             stack.peek().add(new TextNode(template.substring(lastEnd)));
         }
-        System.out.println(nodes);
         return nodes;
     }
 }
