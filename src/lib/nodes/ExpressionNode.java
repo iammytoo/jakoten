@@ -12,7 +12,21 @@ public class ExpressionNode extends Node {
     @Override
     public
     String render(Map<String, Object> context) {
-        Object value = context.get(variable);
+
+        String[] keys = variable.split("\\.");
+        Object value = context;
+        
+        for (String key : keys) {
+            if (value instanceof Map) {
+                value = ((Map<?, ?>) value).get(key);
+                if (!(value instanceof Map)) {
+                    break;
+                }
+            } else {
+                return null;
+            }
+        }
+        
         return value != null ? value.toString() : "null";
     }
 }
